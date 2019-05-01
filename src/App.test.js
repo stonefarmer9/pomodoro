@@ -18,6 +18,6 @@ describe('App component', () => {
   })
 
 it('renders a start timer button', () => {
-  expect(wrapper.find('button').text()).toBe('Start Timer')
+  expect(wrapper.find('button').text()).toBe("Let's Pomodoro!")
 })
 })
