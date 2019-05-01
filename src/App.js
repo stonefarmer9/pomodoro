@@ -55,12 +55,15 @@ class App extends Component {
   return (
     <div className="App">
       <center>
-      <button onClick={this.addWorkTime} className="addWorkTime"> + </button>
-        <span> {workTime}</span>
-      <button  onClick={this.subWorkTime}className="subWorkTime"> - </button>
-        <button onClick={this.addBreakTime}className="addBreakTime"> + </button>
-          <span> {breakTime} </span>
-        <button onClick={this.subBreakTime}className="subBreakTime"> - </button>
+        <div className="buttons">
+          <button onClick={this.addWorkTime} className="addWorkTime"> + </button>
+            <span className="span"> {workTime}</span>
+          <button  onClick={this.subWorkTime}className="subWorkTime"> - </button>
+          <span className="buttonInstructions">{' <- Work Time  Break Time -> '}</span>
+          <button onClick={this.addBreakTime}className="addBreakTime"> + </button>
+            <span className="span"> {breakTime} </span>
+          <button onClick={this.subBreakTime}className="subBreakTime"> - </button>
+        </div>
         <div className="start">
       <button onClick={this.startTimer} className="startButton">Let's Pomodoro!</button>
       </div>
