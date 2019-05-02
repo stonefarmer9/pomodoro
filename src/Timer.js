@@ -6,7 +6,7 @@ export default class Timer extends Component {
     super(props)
     this.state = {
       timeLeft: 0,
-      minutes: 25,
+      minutes: 0,
       seconds: 0
     }
     this.updateTimes = this.updateTimes.bind(this)
@@ -26,35 +26,32 @@ export default class Timer extends Component {
     })
   }
 
-
-
   tick(){
     var timeLeft = this.props.workTime
     var target = new Date();
     target = target.setTime(target.getTime() + (timeLeft * 60 * 1000));
-    var timer = setInterval(function(){
+     this.timer = setInterval(() => {
       var now = new Date().getTime();
 
       var distance = target - now;
       console.log(distance);
+
       var minutes = Math.floor(distance % (1000 * 60 * 60)) / (1000 * 60);
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       console.log(minutes, seconds);
-      
+      this.updateTimes(minutes,seconds)
       if (distance <= 0){
-        clearInterval(timer)
+        clearInterval(this.timer)
       }
-
-
     }, 1000)
   }
   render(){
     const { minutes, seconds } = this.state
     return(
       <div className="Timer">
-      <h2>00:{minutes}:{seconds}</h2>
-      <h3>00:0{this.props.breakTime}:00</h3>
+      <h2>{minutes}:{seconds}</h2>
+      <h3>{this.props.breakTime}:00</h3>
       </div>
     )
   }
