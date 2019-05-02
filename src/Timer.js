@@ -37,9 +37,9 @@ export default class Timer extends Component {
       console.log(distance);
 
       var minutes = Math.floor(distance % (1000 * 60 * 60)) / (1000 * 60);
+      minutes = Math.trunc(minutes)
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      console.log(minutes, seconds);
+      console.log(minutes)
       this.updateTimes(minutes,seconds)
       if (distance <= 0){
         clearInterval(this.timer)
