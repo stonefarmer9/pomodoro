@@ -25,33 +25,33 @@ describe('Buttons', ()=> {
   it('should render the timer component on click', ()=>{
     wrapper.find('button.startButton').simulate('click')
 
-    expect(wrapper.find('div.Timer').text()).toBe("25:005:00")
+    expect(wrapper.find('div.Timer').text()).toBe("00:25:0000:05:00")
   })
 
   it('should increase the number of workMinutes', ()=>{
     wrapper.find('button.addWorkTime').simulate('click')
     wrapper.find('button.startButton').simulate('click')
 
-    expect(wrapper.find('div.Timer').text()).toBe("26:005:00")
+    expect(wrapper.find('div.Timer').text()).toBe("00:26:0000:05:00")
   })
 
   it('should decrease the number of workMinutes', ()=>{
     wrapper.find('button.subWorkTime').simulate('click')
     wrapper.find('button.startButton').simulate('click')
 
-    expect(wrapper.find('div.Timer').text()).toBe("24:005:00")
+    expect(wrapper.find('div.Timer').text()).toBe("00:24:0000:05:00")
   })
   it('should increase the number of breakMinutes', ()=>{
     wrapper.find('button.addBreakTime').simulate('click')
     wrapper.find('button.startButton').simulate('click')
 
-    expect(wrapper.find('div.Timer').text()).toBe("25:006:00")
+    expect(wrapper.find('div.Timer').text()).toBe("00:25:0000:06:00")
   })
   it('should decrease the number of breakMinutes', ()=>{
     wrapper.find('button.subBreakTime').simulate('click')
     wrapper.find('button.startButton').simulate('click')
 
-    expect(wrapper.find('div.Timer').text()).toBe("25:004:00")
+    expect(wrapper.find('div.Timer').text()).toBe("00:25:0000:04:00")
   })
 
 

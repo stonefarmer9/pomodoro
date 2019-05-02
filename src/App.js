@@ -12,6 +12,7 @@ class App extends Component {
     }
   }
 
+
   startTimer = () => {
     this.setState({
       start: true
@@ -43,14 +44,14 @@ class App extends Component {
     })
   }
 
-
   render() {
     const { start, workTime, breakTime } = this.state
     let showTimer;
     if (start === true) {
       showTimer = <Clock
                     workTime={workTime}
-                    breakTime={breakTime}/>
+                    breakTime={breakTime}
+                    updateTime={this.updateTime}/>
     }
   return (
     <div className="App">
@@ -64,10 +65,10 @@ class App extends Component {
             <span className="span"> {breakTime} </span>
           <button onClick={this.addBreakTime}className="addBreakTime"> + </button>
         </div>
+        {showTimer}
         <div className="start">
       <button onClick={this.startTimer} className="startButton">Let's Pomodoro!</button>
       </div>
-       {showTimer}
       </center>
     </div>
   );

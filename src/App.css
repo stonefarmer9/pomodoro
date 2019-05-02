@@ -13,14 +13,14 @@
   font-size: 7.5em;
   background-color: #ffffcc;
   font-family: 'Annie Use Your Telescope';
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 50%;
   padding: 50px;
 }
 .startButton:hover {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   color: white;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .subWorkTime:hover {
-  background-color: #ff3300; /* Green */
+  background-color: #ff3300;
   color: white;
 }
 
