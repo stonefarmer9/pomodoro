@@ -81,11 +81,11 @@ class App extends Component {
         <div className="sessionsButton">
           <h1 className="sessionTitle"> How many sessions ? </h1>
           <button onClick={this.subSession} className="subSession"> - </button>
-          <span className="span">{sessions}</span>
+          <span className="span"> {sessions} </span>
           <button  onClick={this.addSession}className="addSession"> + </button>
         </div>
           <button  onClick={this.subWorkTime}className="subWorkTime"> - </button>
-            <span className="span"> {workTime}</span>
+            <span className="span"> {workTime} </span>
           <button onClick={this.addWorkTime} className="addWorkTime"> + </button>
           <span className="buttonInstructions">{' <- Work Time  Break Time -> '}</span>
           <button onClick={this.subBreakTime}className="subBreakTime"> - </button>
@@ -98,6 +98,7 @@ class App extends Component {
         sound={sound}
         toggleSound={this.toggleSound}/>
         </div>
+        <br></br>
         <div className="start">
       <button onClick={this.startTimer} className="startButton">Let's Pomodoro!</button>
       </div>

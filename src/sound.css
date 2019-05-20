@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope');
+
+.soundButton {
+  background-color: #b300b3;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 45px;
+
+}
+
+.soundButton:Hover {
+  background-color: #4CAF50;
+  color: white;
+}
