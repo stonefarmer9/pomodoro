@@ -39,6 +39,19 @@ describe('Buttons', ()=> {
     expect(wrapper.state().sound).toBe('off')
   })
 
+
+  it('should change increase the number of sessions', () => {
+    wrapper.find('button.addSession').simulate('click')
+
+    expect(wrapper.state().sessions).toBe(2)
+  })
+
+  it('should change decrease the number of sessions', () => {
+    wrapper.find('button.subSession').simulate('click')
+
+    expect(wrapper.state().sessions).toBe(0)
+  })
+
   it('should increase the number of workMinutes', ()=> {
     wrapper.find('button.addWorkTime').simulate('click')
 

@@ -10,7 +10,8 @@ class App extends Component {
       workTime: 25,
       breakTime: 5,
       start: false,
-      sound: "on"
+      sound: "on",
+      sessions: 1
     }
   }
 
@@ -18,6 +19,18 @@ class App extends Component {
   startTimer = () => {
     this.setState({
       start: true
+    })
+  }
+
+  addSession = () => {
+    this.setState({
+      sessions: this.state.sessions + 1
+    })
+  }
+
+  subSession = () => {
+    this.setState({
+      sessions: this.state.sessions - 1
     })
   }
 
@@ -53,7 +66,7 @@ class App extends Component {
   }
 
   render() {
-    const { start, workTime, breakTime, sound } = this.state
+    const { start, workTime, breakTime, sound, sessions } = this.state
     let showTimer;
     if (start === true) {
       showTimer = <Clock
@@ -65,6 +78,12 @@ class App extends Component {
     <div className="App">
       <center>
         <div className="buttons">
+        <div className="sessionsButton">
+          <h1 className="sessionTitle"> How many sessions ? </h1>
+          <button onClick={this.addSession} className="addSession"> + </button>
+          <span className="sessions">{sessions}</span>
+          <button  onClick={this.subSession}className="subSession"> - </button>
+        </div>
           <button  onClick={this.subWorkTime}className="subWorkTime"> - </button>
             <span className="span"> {workTime}</span>
           <button onClick={this.addWorkTime} className="addWorkTime"> + </button>
