@@ -20,6 +20,8 @@ export default class Timer extends Component {
   }
 
   updateTimes(minutes, seconds){
+    var secs = seconds
+    if (seconds < 10) { secs = `0${seconds}`}
     this.setState({
       minutes: minutes,
       seconds: seconds

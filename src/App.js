@@ -1,6 +1,7 @@
 import React, { Component }from 'react';
 import './App.css';
 import  Clock from './Timer'
+import Sound from './sound'
 
 class App extends Component {
   constructor(props){
@@ -8,7 +9,8 @@ class App extends Component {
     this.state = {
       workTime: 25,
       breakTime: 5,
-      start: false
+      start: false,
+      sound: "on"
     }
   }
 
@@ -44,8 +46,14 @@ class App extends Component {
     })
   }
 
+  toggleSound = sound => {
+    this.setState({
+      sound: sound
+    })
+  }
+
   render() {
-    const { start, workTime, breakTime } = this.state
+    const { start, workTime, breakTime, sound } = this.state
     let showTimer;
     if (start === true) {
       showTimer = <Clock
@@ -66,6 +74,11 @@ class App extends Component {
           <button onClick={this.addBreakTime}className="addBreakTime"> + </button>
         </div>
         {showTimer}
+        <div className="sound">
+        <Sound
+        sound={sound}
+        toggleSound={this.toggleSound}/>
+        </div>
         <div className="start">
       <button onClick={this.startTimer} className="startButton">Let's Pomodoro!</button>
       </div>

@@ -29,6 +29,16 @@ describe('Buttons', ()=> {
     expect(wrapper.find('div.Timer')).toBeTruthy()
   })
 
+  it('should render the sound button', ()=> {
+    expect(wrapper.find('button.soundButton')).toBeTruthy()
+  })
+
+  it('should change the sound state to off', () => {
+    wrapper.find('button.soundButton').simulate('click')
+
+    expect(wrapper.state().sound).toBe('off')
+  })
+
   it('should increase the number of workMinutes', ()=> {
     wrapper.find('button.addWorkTime').simulate('click')
 
