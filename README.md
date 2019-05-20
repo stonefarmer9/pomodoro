@@ -1,69 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pomodoro Timer
 
-## Available Scripts
+A small web app to be used as pomodoro style work timer.
 
-In the project directory, you can run:
+## Dependancies
 
-### `npm start`
+```
+Javascript
+React
+Jest
+Enzyme
+CSS
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Testing
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+The program has been built test-driven. Currently using Jest/Enzyme only. All front end features are tested but the timer itself is not tested using this library. The timer functions but I have not yet learnt an effective way to test a timer.
 
-### `npm test`
+## Approach
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I approached this project with two goals. To learn more about styling with React and CSS and to implement a timer function.
 
-### `npm run build`
+The project was test-driven for the most part.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Component Breakdown
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### App
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Renders the control buttons to control how many sessions there are, they time spent working and the break time.
 
-### `npm run eject`
+### Timer
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Renders the clock showing time remaining, updates Apps state via props.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Sound
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ - Renders the sound icon button and controls changing of the button Icon.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Work to be Done
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ - Sound needs to be implemented (currently only implemented to learn how to get icons as buttons)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ - Break time needs to be enabled so the time immidiately begins to count down the break time.
 
-### Code Splitting
+ - Sessions need to control how many times the timer loops before finally stopping.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+ - I feel more testing is needed.
 
-### Analyzing the Bundle Size
+ - The App is not very DRY with all the add/sub time methods - this needs refactoring to be simpler.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+ - I might want to add a header to the page but will make final decision when functionality is in place.
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# pomodoro
+ 
