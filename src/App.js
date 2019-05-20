@@ -80,9 +80,9 @@ class App extends Component {
         <div className="buttons">
         <div className="sessionsButton">
           <h1 className="sessionTitle"> How many sessions ? </h1>
-          <button onClick={this.addSession} className="addSession"> + </button>
-          <span className="sessions">{sessions}</span>
-          <button  onClick={this.subSession}className="subSession"> - </button>
+          <button onClick={this.subSession} className="subSession"> - </button>
+          <span className="span">{sessions}</span>
+          <button  onClick={this.addSession}className="addSession"> + </button>
         </div>
           <button  onClick={this.subWorkTime}className="subWorkTime"> - </button>
             <span className="span"> {workTime}</span>
