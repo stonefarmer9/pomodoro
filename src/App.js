@@ -7,8 +7,8 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      workTime: 25,
-      breakTime: 5,
+      workTime: 1,
+      breakTime: 1,
       start: false,
       sound: "on",
       sessions: 1
@@ -31,6 +31,12 @@ class App extends Component {
   subSession = () => {
     this.setState({
       sessions: this.state.sessions - 1
+    })
+  }
+
+  updateSession = (number) => {
+    this.setState({
+      sessions: number
     })
   }
 
@@ -72,7 +78,9 @@ class App extends Component {
       showTimer = <Clock
                     workTime={workTime}
                     breakTime={breakTime}
-                    updateTime={this.updateTime}/>
+                    updateTime={this.updateTime}
+                    sessions= {sessions}
+                    updateSession={this.updateSession}/>
     }
   return (
     <div className="App">

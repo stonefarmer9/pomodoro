@@ -80,6 +80,10 @@ export default class Timer extends Component {
       this.updateBreakTimes(minutes,seconds);
       if (distance <= 0){
         clearInterval(this.breakTimer)
+        if(this.props.sessions > 1){
+          this.tick();
+          this.props.updateSession(this.props.sessions - 1)
+        }
       }
     }, 1000)
   }
