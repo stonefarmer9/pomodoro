@@ -33,7 +33,6 @@ export default class Timer extends Component {
 
   updateBreakTimes(minutes, seconds){
     var secs = seconds
-    if (seconds < 10) { secs = `0${seconds}`}
     this.setState({
       breakMinutes: minutes,
       breakSeconds: seconds
@@ -52,6 +51,8 @@ export default class Timer extends Component {
       var minutes = Math.floor(distance % (1000 * 60 * 60)) / (1000 * 60);
       minutes = Math.trunc(minutes)
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      if (seconds < 10){ seconds = `0${seconds}`}
+      console.log(seconds)
       this.updateTimes(minutes,seconds)
       if (distance <= 0){
         clearInterval(this.timer)
@@ -72,7 +73,8 @@ export default class Timer extends Component {
       var minutes = Math.floor(distance % (1000 * 60 * 60)) / (1000 * 60);
       minutes = Math.trunc(minutes)
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      this.updateBreakTimes(minutes,seconds)
+      if (seconds < 10){ seconds = `0${seconds}`};
+      this.updateBreakTimes(minutes,seconds);
       if (distance <= 0){
         clearInterval(this.breakTimer)
       }
