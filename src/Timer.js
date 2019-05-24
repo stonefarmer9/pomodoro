@@ -7,9 +7,12 @@ export default class Timer extends Component {
     this.state = {
       timeLeft: 0,
       minutes: 0,
-      seconds: 0
+      seconds: 0,
+      breakMinutes: 0,
+      breakSeconds: 0
     }
-    this.updateTimes = this.updateTimes.bind(this)
+    this.updateTimes = this.updateTimes.bind(this);
+    this.breakTick = this.breakTick.bind(this)
   }
 
   componentDidMount(){
@@ -28,6 +31,15 @@ export default class Timer extends Component {
     })
   }
 
+  updateBreakTimes(minutes, seconds){
+    var secs = seconds
+    if (seconds < 10) { secs = `0${seconds}`}
+    this.setState({
+      breakMinutes: minutes,
+      breakSeconds: seconds
+    })
+  }
+
   tick(){
     var timeLeft = this.props.workTime
     var target = new Date();
@@ -43,15 +55,36 @@ export default class Timer extends Component {
       this.updateTimes(minutes,seconds)
       if (distance <= 0){
         clearInterval(this.timer)
+        this.breakTick()
       }
     }, 1000)
   }
+
+  breakTick(){
+    var timeLeft = this.props.breakTime
+    var target = new Date();
+    target = target.setTime(target.getTime() + (timeLeft * 60 * 1000));
+     this.breakTimer = setInterval(() => {
+      var now = new Date().getTime();
+
+      var distance = target - now;
+
+      var minutes = Math.floor(distance % (1000 * 60 * 60)) / (1000 * 60);
+      minutes = Math.trunc(minutes)
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      this.updateBreakTimes(minutes,seconds)
+      if (distance <= 0){
+        clearInterval(this.breakTimer)
+      }
+    }, 1000)
+  }
+
   render(){
-    const { minutes, seconds } = this.state
+    const { minutes, seconds, breakMinutes, breakSeconds } = this.state
     return(
       <div className="Timer">
       <h2>{minutes}:{seconds}</h2>
-      <h3>{this.props.breakTime}:00</h3>
+      <h3>{breakMinutes}:{breakSeconds}</h3>
       </div>
     )
   }
