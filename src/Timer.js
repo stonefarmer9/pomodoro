@@ -50,6 +50,8 @@ export default class Timer extends Component {
 
       var minutes = Math.floor(distance % (1000 * 60 * 60)) / (1000 * 60);
       minutes = Math.trunc(minutes)
+      if (minutes < 10){ seconds = `0${minutes}`}
+
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       if (seconds < 10){ seconds = `0${seconds}`}
       console.log(seconds)
@@ -72,6 +74,7 @@ export default class Timer extends Component {
 
       var minutes = Math.floor(distance % (1000 * 60 * 60)) / (1000 * 60);
       minutes = Math.trunc(minutes)
+      if (minutes < 10){ seconds = `0${minutes}`}
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       if (seconds < 10){ seconds = `0${seconds}`};
       this.updateBreakTimes(minutes,seconds);
