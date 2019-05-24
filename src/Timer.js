@@ -1,10 +1,12 @@
 import React, { Component }from 'react';
 import './Timer.css';
+import Sound from './alarm'
 
 export default class Timer extends Component {
   constructor(props){
     super(props)
     this.state = {
+      alarm: false,
       timeLeft: 0,
       minutes: 0,
       seconds: 0,
@@ -12,7 +14,7 @@ export default class Timer extends Component {
       breakSeconds: 0
     }
     this.updateTimes = this.updateTimes.bind(this);
-    this.breakTick = this.breakTick.bind(this)
+    this.breakTick = this.breakTick.bind(this);
   }
 
   componentDidMount(){
@@ -54,9 +56,9 @@ export default class Timer extends Component {
 
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       if (seconds < 10){ seconds = `0${seconds}`}
-      console.log(seconds)
       this.updateTimes(minutes,seconds)
       if (distance <= 0){
+        this.playSound(true)
         clearInterval(this.timer)
         this.breakTick()
       }
@@ -79,6 +81,7 @@ export default class Timer extends Component {
       if (seconds < 10){ seconds = `0${seconds}`};
       this.updateBreakTimes(minutes,seconds);
       if (distance <= 0){
+        this.playSound(true)
         clearInterval(this.breakTimer)
         if(this.props.sessions > 1){
           this.tick();
@@ -87,13 +90,25 @@ export default class Timer extends Component {
       }
     }, 1000)
   }
-
+  playSound = (boolean) => {
+    this.setState({
+      alarm: boolean
+    })
+  }
   render(){
-    const { minutes, seconds, breakMinutes, breakSeconds } = this.state
+    const { alarm, minutes, seconds, breakMinutes, breakSeconds } = this.state
+
+    var alert;
+
+     if (alarm === true) {alert = <Sound
+       playSound={this.playSound}/>};
+
     return(
+
       <div className="Timer">
-      <h2>{minutes}:{seconds}</h2>
-      <h3>{breakMinutes}:{breakSeconds}</h3>
+        <div>{alert}</div>
+        <h2>{minutes}:{seconds}</h2>
+        <h3>{breakMinutes}:{breakSeconds}</h3>
       </div>
     )
   }
